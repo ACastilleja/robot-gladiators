@@ -1,14 +1,46 @@
+// Initial prompt
 var playerName=window.prompt("What is your robots's name?");
-console.log(playerName);
-console.log("THis logs a string, good for leaving yourself a message");
-console.log(10+10);
-console.log("Our robot's name is " + playerName);
+//Adding robot gladiators info
+var playerHealth = 100;
+var playerAttack = 10;
+
+//You can also log multiple values at once 
+console.log(playerName, playerAttack, playerHealth);
+
+//Adding opponent
+var enemyName = "Roborto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
 
-//this creates a function named "fight"
+//creating function named "fight" start
 
-function fight () {
-    window.alert("The fight has begun!")
-}
+var fight = function() {
+    //Alert players the round is starting
+    window.alert('Welcome to Robot Gladiators!');
+    //Subract the vlaue of 'playerAttack from the value of 'enemyHealth' and use that result to update the value in the 'enemyHealth' variable
+    enemyHealth=enemyHealth - playerAttack;
+    //Log a resulting message to the console so we know that it worked.
+    console.log(playerName + " attacked " +enemyName+ ". " + enemyName+ " now has "+ enemyHealth + " health remaining. ")
+    //check enemy's health
+    if (enemyHealth <=0) {
+        window.alert(enemyName + " has died!");
+    }
+    else {
+        window.alert(enemyName + " still has " + enemyHealth + " health left.");
+    }
+    //Subract the value of 'enemyAttack' from the value of 'playerHealth' and use that result to update the vlaue in the 'playerHealth' valiable
+    playerHealth=playerHealth-enemyAttack;
+    //Log a resulting message to the console so we know that it worked.
+    console.log(enemyName + " attacked " +playerName+ ". " + playerName+ " now has "+ playerHealth + " health remaining. ")
+    //check player's health
+    if (playerHealth <=0) {
+        window.alert(playerName + " has died!");
+    }
+    else {
+        window.alert(playerName + " still has " +playerHealth + " health left.");
+    }
 
-//fight();
+};
+
+fight();
